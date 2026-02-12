@@ -1,0 +1,30 @@
+{
+    "rwc010": {
+	"structure": [
+	    {"org": {"onset": 236.02, "label": "chorus"},
+	     "fix": null}
+	]
+    },
+    "rwc078": {
+	"structure": [
+	    {"org": {"onset": 110.23, "label": "chorus"},
+	     "fix": null},
+	    {"org": {"onset": 232.84, "label": "chorus"},
+	     "fix": null}
+	]
+    },
+    "rwc096": {
+	"structure": [
+	    {"org": {"onset": 211.93, "label": "outro"},
+	     "fix": {"onset": 209.38, "label": "outro"}}
+	]
+    },
+    "rwc097": {
+	"structure": [
+	    {"org": {"onset": 0.0, "label": "intro"},
+	     "fix": null},
+	    {"org": {"onset": 202.78, "label": "outro"},
+	     "fix": {"onset": 200.56, "label": "outro"}}
+	]
+    }
+}
