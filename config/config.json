@@ -1,0 +1,290 @@
+{
+    "label": {
+	"hop_sec": 0.5
+    },
+    "dictionary": {
+	"mapping": {
+	    "silence": "silence",
+	    "sile": "silence",
+	    "nothing": "silence",
+	    "pre-chorus": "verse",
+	    "prechorus": "verse",
+	    "refrain": "chorus",
+	    "chorus": "chorus",
+	    "theme": "chorus",
+	    "stutter": "chorus",
+	    "maintheme": "chorus",
+	    "verse": "verse",
+	    "rap": "verse",
+	    "section": "verse",
+	    "slow": "verse",
+	    "build": "verse",
+	    "dialog": "verse",
+	    "secondarytheme": "verse",
+	    "intro": "intro",
+	    "fadein": "intro",
+	    "opening": "intro",
+	    "begin": "intro",
+	    "bridge": "bridge",
+	    "trans": "bridge",
+	    "transition": "bridge",
+	    "out": "outro",
+	    "coda": "outro",
+	    "end": "outro",
+	    "closing": "outro",
+	    "outro": "outro",
+	    "break": "inst",
+	    "inst": "inst",
+	    "instrumental": "inst",
+	    "interlude": "inst",
+	    "impro": "inst",
+	    "solo": "inst",
+	    "Z": "inst"
+	},
+	"index": {
+	    "intro": 0,
+	    "verse": 1,
+	    "chorus": 2,
+	    "bridge": 3,
+	    "inst": 4,
+	    "outro": 5,
+	    "silence": 6
+	}
+    },
+    "model_parameters": {
+	"no_pooling": {
+	    "To": 60,
+	    "CLAP": {
+		"music_audioset": {},
+		"music_speech_audioset": {}
+	    },
+	    "MERT": {
+		"95M": {
+		    "Ti": 2250,
+		    "Z": 768,
+		    "n_layer": 7
+		},
+		"330M": {
+		    "Ti": 2250,
+		    "Z": 1024,
+		    "n_layer": 13
+		}
+	    },
+	    "MetaAudioMAE": {
+		"pretrained": {
+		    "Ti": 187.5,
+		    "Z": 768,
+		    "n_layer": 11
+		},
+		"finetuned": {
+		    "Ti": 187.5,
+		    "Z": 768,
+		    "n_layer": 11
+		}
+	    },
+	    "MULE": {
+		"Ti": 15,
+		"Z": 1728
+	    },
+	    "MusicFM": {
+		"fma": {
+		    "Ti": 750,
+		    "Z": 1024
+		},
+		"msd": {
+		    "Ti": 750,
+		    "Z": 1024
+		}
+	    },
+	    "PANNs": {
+		"Cnn14": {},
+		"Cnn14_DecisionLevelMax": {
+		    "Ti": 93.75,
+		    "Z": 2048
+		}
+	    },
+	    "PaSST": {
+		"Ti": 600,
+		"Z": 768
+	    },
+	    "OpenL3": {
+		"Ti": 300,
+		"Z": 6144
+	    },
+	    "DAC": {
+		"Ti": 2583.984375,
+		"Z": 1024
+	    },
+	    "EnCodec": {
+		"24kHz_3kbps": {
+		    "Ti": 2250,
+		    "Z": 128
+		},
+		"24kHz_6kbps": {
+		    "Ti": 2250,
+		    "Z": 128
+		},
+		"24kHz_12kbps": {
+		    "Ti": 2250,
+		    "Z": 128
+		},
+		"24kHz_24kbps": {
+		    "Ti": 2250,
+		    "Z": 128
+		},
+		"48kHz_3kbps": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_6kbps": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_12kbps": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_24kbps": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_3kbps_stereo": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_6kbps_stereo": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_12kbps_stereo": {
+		    "Ti": 4500,
+		    "Z": 128
+		},
+		"48kHz_24kbps_stereo": {
+		    "Ti": 4500,
+		    "Z": 128
+		}
+	    }
+	},
+	"pooling": {
+	    "Ti": 60,
+	    "To": 60,
+	    "CLAP": {
+		"music_audioset": {
+		    "Z": 512
+		},
+		"music_speech_audioset": {
+		    "Z": 512
+		}
+	    },
+	    "MERT": {
+		"95M": {
+		    "Z": 768,
+		    "n_layer": 7
+		},
+		"330M": {
+		    "Z": 1024,
+		    "n_layer": 13
+		}
+	    },
+	    "MetaAudioMAE": {
+		"pretrained": {
+		    "Z": 768,
+		    "n_layer": 11
+		},
+		"finetuned": {
+		    "Z": 768,
+		    "n_layer": 11
+		}
+	    },
+	    "MULE": {},
+	    "MusicFM": {
+		"fma": {
+		    "Z": 1024
+		},
+		"msd": {
+		    "Z": 1024
+		}
+	    },
+	    "PANNs": {
+		"Cnn14": {
+		    "Z": 2048
+		},
+		"Cnn14_DecisionLevelMax": {
+		    "Z": 2048
+		}
+	    },
+	    "PaSST": {
+		"Z": 768
+	    },
+	    "OpenL3": {
+		"Z": 6144
+	    },
+	    "DAC": {
+		"Z": 1024
+	    },
+	    "EnCodec": {
+		"24kHz_3kbps": {
+		    "Z": 128
+		},
+		"24kHz_6kbps": {
+		    "Z": 128
+		},
+		"24kHz_12kbps": {
+		    "Z": 128
+		},
+		"24kHz_24kbps": {
+		    "Z": 128
+		},
+		"48kHz_3kbps": {
+		    "Z": 128
+		},
+		"48kHz_6kbps": {
+		    "Z": 128
+		},
+		"48kHz_12kbps": {
+		    "Z": 128
+		},
+		"48kHz_24kbps": {
+		    "Z": 128
+		},
+		"48kHz_3kbps_stereo": {
+		    "Z": 128
+		},
+		"48kHz_6kbps_stereo": {
+		    "Z": 128
+		},
+		"48kHz_12kbps_stereo": {
+		    "Z": 128
+		},
+		"48kHz_24kbps_stereo": {
+		    "Z": 128
+		}
+	    }
+	},
+	"structure": {
+	    "name": 7,
+	    "boundary": 1
+	}
+    },
+    "feature": {
+	"sampling_frequency": 16000,
+	"ch": 1,
+	"hop_sample": 8000,
+	"mel": {
+	    "norm": "slaney",
+	    "n_bins": 80,
+	    "f_min": 50,
+	    "f_max": 8000
+	},
+	"cqt": {
+	    "fmin": 32.70319566257483,
+	    "octave": 6,
+	    "bins_per_octave": 24
+	},
+	"window_length": 2048,
+	"log_offset": 1e-8,
+	"window": "hann",
+	"pad_mode": "constant"
+    }
+}
