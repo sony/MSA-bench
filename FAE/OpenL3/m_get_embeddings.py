@@ -1,0 +1,132 @@
+#! python
+
+import os
+import json
+import argparse
+import math
+import torch
+import torchaudio
+import torchopenl3
+
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d_audio', help='directory: input audio', required=True)
+    parser.add_argument('-d_embed', help='directory: output embeddings', required=True)
+    parser.add_argument('-f_list', help='file: file name list', required=True)
+    parser.add_argument('-chunk_len_msec', help='parameter: chunk length in msec', type=int, default=5000)
+    parser.add_argument('-chunk_hop_msec', help='parameter: chunk hop in msec', type=int, default=500)
+    parser.add_argument('-zero_padding', help='parameter: zero padding at top', action='store_true')
+    parser.add_argument('-hop_mean', help='parameter: apply mean', action='store_true')
+    args = parser.parse_args()
+
+    print('** get embeddings (OpenL3) **')
+    print(' directory')
+    print('  input audio       : '+str(args.d_audio))
+    print('  output embeddings : '+str(args.d_embed))
+    print(' file')
+    print('  file list         : '+str(args.f_list))
+    print(' parameter')
+    print('  chunk length      : '+str(args.chunk_len_msec)+' [msec]')
+    print('  chunk hop         : '+str(args.chunk_hop_msec)+' [msec]')
+    print('  zero padding      : '+str(args.zero_padding))
+    print('  hop_mean          : '+str(args.hop_mean))
+    if 0:
+        print(' model')
+        model = torchopenl3.models.load_audio_embedding_model('mel256', 'music', 6144)
+        print('  num of parameters : '+str(count_parameters(model)))
+        del model
+
+    # fixed value
+    DEFAULT_FS = 44100
+    MODEL_FS = 48000
+    Z = 6144
+    n_margin_tail = 19201#at 48kHz
+
+    # chunk processing
+    if args.chunk_len_msec > 0:
+        hop_sec = 0.1
+        N = int(args.chunk_len_msec / (hop_sec*1000)) + 1
+        chunk_sample = int(args.chunk_len_msec * (MODEL_FS/1000))
+        chunk_hop_sample = int(args.chunk_hop_msec * (MODEL_FS/1000))
+        print(' chunk processing')
+        print('  chunk_sample      : '+str(chunk_sample))
+        print('  chunk_hop_sample  : '+str(chunk_hop_sample))
+        print('  N                 : '+str(N))
+
+    # fs converter
+    sr = DEFAULT_FS
+    tr_fsconv = torchaudio.transforms.Resample(sr, MODEL_FS)
+
+    # get embeddings
+    with open(args.f_list, 'r', encoding='utf-8') as f:
+        a_fname_tmp = json.load(f)
+    a_fname = []
+    for split in a_fname_tmp:
+        for fname in a_fname_tmp[split]:
+            if fname.startswith('#'):
+                continue
+            a_fname.append(fname)
+    del a_fname_tmp
+    a_fname.sort()
+    for fname in a_fname:
+        print(fname)
+
+        wave, sr = torchaudio.load(args.d_audio.rstrip('/')+'/'+fname+'.wav')
+        # wave: [ch, sample]
+        wave_mono = torch.mean(wave, dim=0)
+        # wave_mono: [sample]
+        del wave
+        if sr != MODEL_FS:
+            if sr != DEFAULT_FS:
+                #print(sr)
+                tr_fsconv_tmp = torchaudio.transforms.Resample(sr, MODEL_FS)
+                wave_mono = tr_fsconv_tmp(wave_mono)
+            else:
+                wave_mono = tr_fsconv(wave_mono)
+
+        if args.chunk_len_msec == 0:
+            ## add zero on tail to get the correct frame number
+            wave_mono = torch.cat([wave_mono, torch.zeros(n_margin_tail, dtype=wave_mono.dtype)], dim=0)
+
+            ## original implementation
+            embeddings, ts = torchopenl3.get_audio_embedding(wave_mono.numpy(), MODEL_FS)
+            # embeddings: [B, T, Z]
+            torch.save(embeddings.detach().cpu().squeeze(0), args.d_embed.rstrip('/')+'/'+fname+'.dat')
+
+        else:
+            # w/ chunk processing
+            # add half chunk to top
+            if args.zero_padding:
+                zero_top = torch.zeros((int(chunk_sample/2)), dtype=wave_mono.dtype)
+                wave_mono = torch.cat([zero_top, wave_mono])
+
+            n_chunk = math.ceil(wave_mono.shape[0] / chunk_hop_sample)
+            if args.hop_mean:
+                a_embeddings = torch.zeros((n_chunk, Z), dtype=wave_mono.dtype)
+            else:
+                a_embeddings = torch.zeros((n_chunk, N, Z), dtype=wave_mono.dtype)
+            for i in range(n_chunk):
+                input_audio = torch.zeros(chunk_sample+n_margin_tail, dtype=wave_mono.dtype)
+                idx_s = i * chunk_hop_sample
+                idx_e = min(idx_s + chunk_sample+n_margin_tail, wave_mono.shape[0])
+                input_audio[:(idx_e-idx_s)] = wave_mono[idx_s:idx_e]
+
+                with torch.no_grad():
+                    embeddings, ts = torchopenl3.get_audio_embedding(input_audio.numpy(), MODEL_FS)
+                    # embeddings: [B, N, Z]
+                del input_audio
+
+                if args.hop_mean:
+                    a_embeddings[i] = embeddings.detach().cpu().squeeze(0).mean(dim=0)
+                else:
+                    a_embeddings[i] = embeddings.detach().cpu().squeeze(0)
+
+            if args.hop_mean is False:
+                a_embeddings = a_embeddings.reshape(n_chunk*N, Z)
+
+            torch.save(a_embeddings, args.d_embed.rstrip('/')+'/'+fname+'.dat')
+
+    print('** done **')
