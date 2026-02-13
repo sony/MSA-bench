@@ -33,6 +33,7 @@ This repository contains the official Python implementation of **"Do Foundationa
 
 
 ## Supplimental Results
+<!--
   <head>
     <style>
       .bold-text {
@@ -56,6 +57,7 @@ This repository contains the official Python implementation of **"Do Foundationa
       }
     </style>
     </head>
+-->
 <body>
 <table class="manual-border">
 <caption><span class="bold-text">Table A.</span> 8-fold validaiton of linear probing on Harmonix dataset. Values are mean&plusmn;standard deviation.</caption>
