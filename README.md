@@ -218,28 +218,28 @@ This repository contains the official Python implementation of **"Do Foundationa
 <td colspan=9 style="background-color: lightgray;"><i>Self-supervised Learning: Tokenization (Codec)</i></td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/3kbps)</td><td>23.5</td><td class="right-border">16.8</td><td>42.6</td><td class="right-border">30.9</td><td>54.2</td><td class="right-border">53.9</td><td>47.0</td><td>44.7</td>
+<td class="right-border">EnCodec (24kHz/3kbps)</td><td>23.5</td><td class="right-border">16.8</td><td>42.6</td><td class="right-border">30.9</td><td>54.2</td><td class="right-border">53.9</td><td>47.0</td><td>44.7</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/6kbps)</td><td>23.3</td><td class="right-border">17.4</td><td>42.7</td><td class="right-border">31.3</td><td>54.1</td><td class="right-border">53.9</td><td>46.9</td><td>43.3</td>
+<td class="right-border">EnCodec (24kHz/6kbps)</td><td>23.3</td><td class="right-border">17.4</td><td>42.7</td><td class="right-border">31.3</td><td>54.1</td><td class="right-border">53.9</td><td>46.9</td><td>43.3</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/12kbps)</td><td>23.0</td><td class="right-border">16.5</td><td>42.6</td><td class="right-border">31.0</td><td>53.9</td><td class="right-border">53.7</td><td>46.0</td><td>43.7</td>
+<td class="right-border">EnCodec (24kHz/12kbps)</td><td>23.0</td><td class="right-border">16.5</td><td>42.6</td><td class="right-border">31.0</td><td>53.9</td><td class="right-border">53.7</td><td>46.0</td><td>43.7</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/24kbps)</td><td>23.3</td><td class="right-border">17.1</td><td>42.6</td><td class="right-border">31.0</td><td>54.1</td><td class="right-border">53.5</td><td>46.2</td><td>43.3</td>
+<td class="right-border">EnCodec (24kHz/24kbps)</td><td>23.3</td><td class="right-border">17.1</td><td>42.6</td><td class="right-border">31.0</td><td>54.1</td><td class="right-border">53.5</td><td>46.2</td><td>43.3</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/3kbps)</td><td>24.5</td><td class="right-border">17.8</td><td>43.0</td><td class="right-border">36.2</td><td>55.6</td><td class="right-border">54.3</td><td>51.3</td><td>46.7</td>
+<td class="right-border">EnCodec (48kHz/3kbps)</td><td>24.5</td><td class="right-border">17.8</td><td>43.0</td><td class="right-border">36.2</td><td>55.6</td><td class="right-border">54.3</td><td>51.3</td><td>46.7</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/6kbps)</td><td>23.5</td><td class="right-border">16.2</td><td>42.6</td><td class="right-border">35.8</td><td>55.7</td><td class="right-border">54.4</td><td>51.3</td><td>46.9</td>
+<td class="right-border">EnCodec (48kHz/6kbps)</td><td>23.5</td><td class="right-border">16.2</td><td>42.6</td><td class="right-border">35.8</td><td>55.7</td><td class="right-border">54.4</td><td>51.3</td><td>46.9</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/12kbps)</td><td>22.5</td><td class="right-border">15.9</td><td>42.0</td><td class="right-border">35.1</td><td>55.5</td><td class="right-border">54.1</td><td>50.7</td><td>47.1</td>
+<td class="right-border">EnCodec (48kHz/12kbps)</td><td>22.5</td><td class="right-border">15.9</td><td>42.0</td><td class="right-border">35.1</td><td>55.5</td><td class="right-border">54.1</td><td>50.7</td><td>47.1</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/24kbps)</td><td>22.0</td><td class="right-border">16.0</td><td>41.7</td><td class="right-border">34.7</td><td>55.4</td><td class="right-border">54.2</td><td>51.2</td><td>47.3</td>
+<td class="right-border">EnCodec (48kHz/24kbps)</td><td>22.0</td><td class="right-border">16.0</td><td>41.7</td><td class="right-border">34.7</td><td>55.4</td><td class="right-border">54.2</td><td>51.2</td><td>47.3</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
 <td class="right-border">DAC</td><td>21.2</td><td class="right-border">17.1</td><td>41.0</td><td class="right-border">38.9</td><td>53.8</td><td class="right-border">53.5</td><td>44.1</td><td>41.7</td>
@@ -332,28 +332,28 @@ This repository contains the official Python implementation of **"Do Foundationa
 <td colspan=9 style="background-color: lightgray;"><i>Self-supervised Learning: Tokenization (Codec)</i></td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/3kbps)</td><td>27.6</td><td class="right-border">17.8</td><td>50.2</td><td class="right-border">29.6</td><td>50.6</td><td class="right-border">50.1</td><td>47.2</td><td>43.9</td>
+<td class="right-border">EnCodec (24kHz/3kbps)</td><td>27.6</td><td class="right-border">17.8</td><td>50.2</td><td class="right-border">29.6</td><td>50.6</td><td class="right-border">50.1</td><td>47.2</td><td>43.9</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/6kbps)</td><td>28.4</td><td class="right-border">17.5</td><td>51.9</td><td class="right-border">34.3</td><td>51.0</td><td class="right-border">50.6</td><td>47.8</td><td>45.6</td>
+<td class="right-border">EnCodec (24kHz/6kbps)</td><td>28.4</td><td class="right-border">17.5</td><td>51.9</td><td class="right-border">34.3</td><td>51.0</td><td class="right-border">50.6</td><td>47.8</td><td>45.6</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/12kbps)</td><td>28.2</td><td class="right-border">17.7</td><td>51.5</td><td class="right-border">33.9</td><td>50.4</td><td class="right-border">49.9</td><td>47.3</td><td>44.5</td>
+<td class="right-border">EnCodec (24kHz/12kbps)</td><td>28.2</td><td class="right-border">17.7</td><td>51.5</td><td class="right-border">33.9</td><td>50.4</td><td class="right-border">49.9</td><td>47.3</td><td>44.5</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (24kHz/24kbps)</td><td>28.0</td><td class="right-border">18.1</td><td>51.8</td><td class="right-border">34.1</td><td>50.1</td><td class="right-border">50.4</td><td>47.1</td><td>44.5</td>
+<td class="right-border">EnCodec (24kHz/24kbps)</td><td>28.0</td><td class="right-border">18.1</td><td>51.8</td><td class="right-border">34.1</td><td>50.1</td><td class="right-border">50.4</td><td>47.1</td><td>44.5</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/3kbps)</td><td>28.4</td><td class="right-border">19.5</td><td>51.1</td><td class="right-border">37.1</td><td>50.0</td><td class="right-border">49.1</td><td>48.0</td><td>40.4</td>
+<td class="right-border">EnCodec (48kHz/3kbps)</td><td>28.4</td><td class="right-border">19.5</td><td>51.1</td><td class="right-border">37.1</td><td>50.0</td><td class="right-border">49.1</td><td>48.0</td><td>40.4</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/6kbps)</td><td>28.0</td><td class="right-border">17.9</td><td>52.6</td><td class="right-border">32.2</td><td>49.9</td><td class="right-border">49.3</td><td>47.8</td><td>38.6</td>
+<td class="right-border">EnCodec (48kHz/6kbps)</td><td>28.0</td><td class="right-border">17.9</td><td>52.6</td><td class="right-border">32.2</td><td>49.9</td><td class="right-border">49.3</td><td>47.8</td><td>38.6</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/12kbps)</td><td>25.9</td><td class="right-border">16.6</td><td>51.7</td><td class="right-border">32.9</td><td>50.2</td><td class="right-border">50.4</td><td>47.7</td><td>40.1</td>
+<td class="right-border">EnCodec (48kHz/12kbps)</td><td>25.9</td><td class="right-border">16.6</td><td>51.7</td><td class="right-border">32.9</td><td>50.2</td><td class="right-border">50.4</td><td>47.7</td><td>40.1</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
-<td class="right-border">Codec (48kHz/24kbps)</td><td>26.1</td><td class="right-border">17.8</td><td>51.5</td><td class="right-border">32.3</td><td>49.4</td><td class="right-border">49.6</td><td>47.8</td><td>38.6</td>
+<td class="right-border">EnCodec (48kHz/24kbps)</td><td>26.1</td><td class="right-border">17.8</td><td>51.5</td><td class="right-border">32.3</td><td>49.4</td><td class="right-border">49.6</td><td>47.8</td><td>38.6</td>
 </tr>
 <tr style="text-align:center; vertical-align:middle;">
 <td class="right-border">DAC</td><td>26.9</td><td class="right-border">20.5</td><td>53.0</td><td class="right-border">39.3</td><td>51.0</td><td class="right-border">50.8</td><td>48.6</td><td>46.1</td>
